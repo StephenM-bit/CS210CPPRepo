@@ -4,43 +4,51 @@
 
 #pragma once
 #include "NODE.h"
+#include "List.h"
 
 template <typename T>
-class LinkedList {
-    public:
-    Node<t>* head;
-    Node<t> *tail;
-    int size;
-
-    LinkedList(T *value) {
-        Node<T> *temp = new Node<T>(value);
-        head = temp;
-        tail=temp;
-        size=1;
+class LinkedList : public List<T> {
+public:
+    LinkedList() : head_(nullptr) {}
+    void addFront(T* value) override {
+        Node<T>* fresh = new Node<T>(value);
+        fresh->next = head_;
+        head_ = fresh;
     }
-    LinkedList() {
-        head=nullptr;
-        size=0;
-    }
-
-    void print() {
-        Node<T> *temp1 = head;
-        while (temp1 != nullptr) {
-            temp1->print();
-            temp1 = temp1->next;
-        }
-    }
-
-    void append(T *value) {
-        Node<T> *newnode = new Node<T>(value);
-        if (head == nullptr) {
-            head = newnode;
-            size++;
+    void deleteFront() override {
+        if (head_ == nullptr) {
+            std::cout << "LinkedList is empty." << std::endl;
             return;
         }
-        tail->next = newnode;
-        tail = tail->next; //tail=newnode
-        size++;
+        Node<T>* doomed = head_;
+        head_ = head_->next;
+        delete doomed->data;
+        delete doomed;
     }
-    //write delete at end
+    bool search(T* value) const override {
+        Node<T>* current = head_;
+        while (current != nullptr) {
+            if (*current->data == *value) return true;
+            current = current->next;
+        }
+        return false;
+    }
+    void print() const override {
+        Node<T>* current = head_;
+        while (current != nullptr) {
+            std::cout << *current->data << ",";
+            current = current->next;
+        }
+        std::cout << std::endl;
+    }
+    ~LinkedList() override {
+        while (head_ != nullptr) {
+            Node<T>* doomed = head_;
+            head_ = head_->next;
+            delete doomed->data;
+            delete doomed;
+        }
+    }
+private:
+    Node<T>* head_;
 };
