@@ -21,7 +21,7 @@ int main() {
     // p = nullptr;
 
     Box *box1 = new Box(5);
-    std::cout << box1.value() << std::endl;
+    std::cout << box1->value() << std::endl;
     delete box1;
 
 
