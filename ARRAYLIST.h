@@ -8,9 +8,6 @@ using namespace std;
 template <typename T>
 class ArrayList : public List<T> {
 public:
-        ArrayList():size(0) {
-
-        }
         void addFront(T* value) override {
                 if (size_ >= CAPACITY) {
                         std::cout << "ArrayList is full." << std::endl;
@@ -71,4 +68,4 @@ private:
         T* data_[CAPACITY];
         int size_;
 
-}
+};

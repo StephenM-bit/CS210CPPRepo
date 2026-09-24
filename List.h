@@ -8,7 +8,7 @@
 template <typename T>
 class List {
     public:
-    virtual ~List();
+    virtual ~List() = default;
 
     virtual void addFront(T* value) = 0;
     virtual void deleteFront() = 0;
@@ -21,6 +21,6 @@ class List {
 
 template <typename T>
 std::unique_ptr<List<T>> makeList() {
-    return std::make_unique<LinkedList<T>>();
+     return std::make_unique<LinkedList<T>>();
     //return std::make_unique<ArrayList<T>>();
 }
