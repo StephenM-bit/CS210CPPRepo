@@ -8,4 +8,5 @@ add_executable(untitled6 main.cpp
         NODE.h
         Data.cpp
         Data.h
-        LINKEDLIST.h)
+        LINKEDLIST.h
+        List.h)

@@ -1,0 +1,26 @@
+//
+// Created by steph on 9/23/2026.
+//
+
+#pragma once
+#include <memory>
+
+template <typename T>
+class List {
+    public:
+    virtual ~List();
+
+    virtual void addFront(T* value) = 0;
+    virtual void deleteFront() = 0;
+    virtual bool search(T* value) const = 0;
+    virtual void print() const = 0;
+};
+
+#include "ARRAYLIST.h"
+#include "LINKEDLIST.h"
+
+template <typename T>
+std::unique_ptr<List<T>> makeList() {
+    return std::make_unique<LinkedList<T>>();
+    //return std::make_unique<ArrayList<T>>();
+}
