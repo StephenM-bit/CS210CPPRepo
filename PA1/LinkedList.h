@@ -98,6 +98,19 @@ public:
         delete doomed;
         --size_;
     }
+    void reverse() override {
+        Node<T>* previous = nullptr;
+        Node<T>* current = head_;
+
+        while (current != nullptr) {
+            Node<T>* next = current->next;
+            current->next = previous;
+            previous = current;
+            current = next;
+        }
+
+        head_ = previous;
+    }
 
 private:
     Node<T>* head_;
