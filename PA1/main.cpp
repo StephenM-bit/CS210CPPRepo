@@ -33,13 +33,35 @@ int main() {
 
     // A table forms with four players.
     std::unique_ptr<List<Player>> table = makeList<Player>();
-    table->addFront(new Player(4, "Diana"));
-    table->addFront(new Player(3, "Charlie"));
-    table->addFront(new Player(2, "Bob"));
-    table->addFront(new Player(1, "Alice"));
+    Player* diana = new Player(4, "Diana");
+    Player* charlie = new Player(3, "Charlie");
+    Player* bob = new Player(2, "Bob");
+    Player* alice = new Player(1, "Alice");
+
+    table->addFront(diana);
+    table->addFront(charlie);
+    table->addFront(bob);
+    table->addFront(alice);
 
     std::cout << "The table forms: ";
     table->print();
+
+    //Extra Credit
+    /*
+    std::cout << "Dealing starting hands." << std::endl;
+
+    alice->addCard(new Card("Red", "7"));
+    alice->addCard(new Card("Blue", "2"));
+
+    bob->addCard(new Card("Green", "5"));
+    bob->addCard(new Card("Yellow", "Reverse"));
+
+    charlie->addCard(new Card("Red", "Skip"));
+    charlie->addCard(new Card("Blue", "9"));
+
+    diana->addCard(new Card("Yellow", "3"));
+    diana->addCard(new Card("Green", "8"));
+    */
 
     // A new player joins in the middle of the turn order.
     std::cout << "Evan pulls up a chair and joins the middle of the order: ";
@@ -55,6 +77,17 @@ int main() {
 
     std::cout << "After reverse: ";
     table->print();
+
+    //Extra Credit
+    /*
+    std::cout << "Alice plays a card: ";
+    Card* playedCard = alice->playCard();
+
+    if (playedCard != nullptr) {
+        std::cout << *playedCard << std::endl;
+        delete playedCard;
+    }
+    */
 
     // A player runs out of cards and leaves from the middle.
     std::cout << "Evan runs out of cards and leaves the table: ";
