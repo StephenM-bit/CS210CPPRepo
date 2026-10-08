@@ -103,6 +103,26 @@ public:
                         data_[size_ - 1 - i] = temp;
                 }
         }
+        void concat(List<T>* other) override {
+                ArrayList<T>* otherArray = dynamic_cast<ArrayList<T>*>(other);
+
+                if (otherArray == nullptr) {
+                        std::cout << "Cannot concat different list types." << std::endl;
+                        return;
+                }
+
+                if (size_ + otherArray->size_ > CAPACITY) {
+                        std::cout << "ArrayList does not have enough capacity." << std::endl;
+                        return;
+                }
+
+                for (int i = 0; i < otherArray->size_; i++) {
+                        data_[size_ + i] = otherArray->data_[i];
+                }
+
+                size_ += otherArray->size_;
+                otherArray->size_ = 0;
+        }
 
 private:
         static const int CAPACITY = 20;
