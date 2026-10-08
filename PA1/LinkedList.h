@@ -5,7 +5,7 @@
 template <typename T>
 class LinkedList : public List<T> {
 public:
-    LinkedList() : head_(nullptr), size_() {}
+    LinkedList() : head_(nullptr), size_(0) {}
     void addFront(T* value) override {
         Node<T>* fresh = new Node<T>(value);
         fresh->next = head_;

@@ -29,6 +29,58 @@ int main() {
 
     // ---- Part 2: your Uno scene goes below ----
 
+    std::cout << std::endl << "== Uno Turn Order ==" << std::endl;
+
+    // A table forms with four players.
+    std::unique_ptr<List<Player>> table = makeList<Player>();
+    table->addFront(new Player(4, "Diana"));
+    table->addFront(new Player(3, "Charlie"));
+    table->addFront(new Player(2, "Bob"));
+    table->addFront(new Player(1, "Alice"));
+
+    std::cout << "The table forms: ";
+    table->print();
+
+    // A new player joins in the middle of the turn order.
+    std::cout << "Evan pulls up a chair and joins the middle of the order: ";
+    table->addAnywhere(2, new Player(5, "Evan"));
+    table->print();
+
+    // A Reverse card is played.
+    std::cout << "A Reverse card is played." << std::endl;
+    std::cout << "Before reverse: ";
+    table->print();
+
+    table->reverse();
+
+    std::cout << "After reverse: ";
+    table->print();
+
+    // A player runs out of cards and leaves from the middle.
+    std::cout << "Evan runs out of cards and leaves the table: ";
+    table->deleteAnywhere(2);
+    table->print();
+
+    // A second table forms separately.
+    std::unique_ptr<List<Player>> secondTable = makeList<Player>();
+    secondTable->addFront(new Player(7, "Grace"));
+    secondTable->addFront(new Player(6, "Frank"));
+
+    std::cout << "A second table finishes its game." << std::endl;
+    std::cout << "First table before concat: ";
+    table->print();
+
+    std::cout << "Second table before concat: ";
+    secondTable->print();
+
+    // The second table merges into the first.
+    table->concat(secondTable.get());
+
+    std::cout << "First table after concat: ";
+    table->print();
+
+    std::cout << "Second table after concat: ";
+    secondTable->print();
 
     return 0;
 }
