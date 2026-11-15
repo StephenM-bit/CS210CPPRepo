@@ -1,0 +1,90 @@
+START_HP 10
+SCENE Jerry the mouse smells a delicious piece of cheese across the kitchen.
+HP 0
+LOOT 0
+ITEM none
+CHOICES 3
+LABEL Sneak under the table
+SCENE Jerry crawls under the table while pretending to be a tiny spy.
+HP 0
+LOOT 0
+ITEM none
+CHOICES 1
+LABEL Avoid the cat's food bowl
+SCENE Jerry carefully walks around the cat's bowl and finds a shiny button.
+HP -1
+LOOT 2
+ITEM Shiny Button
+CHOICES 1
+LABEL Climb the stack of books
+SCENE Jerry climbs a stack of books and finds a map drawn in crayon.
+HP -1
+LOOT 3
+ITEM Crayon Map
+CHOICES 1
+LABEL Cross the dinner plate
+SCENE Jerry slides across the dinner plate like it is a frozen lake.
+HP -1
+LOOT 2
+ITEM Plate Medal
+CHOICES 1
+LABEL Grab the cheese
+SCENE Jerry grabs the cheese and celebrates by doing a tiny victory dance.
+HP 2
+LOOT 5
+ITEM Cheese
+CHOICES 0
+LABEL Ask the parrot for directions
+SCENE A parrot claims it knows where the cheese is and asks Jerry to follow.
+HP -1
+LOOT 6
+ITEM Parrot Feather
+CHOICES 2
+LABEL Follow the parrot into the pantry
+SCENE The parrot leads Jerry into a pantry full of angry crackers.
+HP -10
+LOOT 7
+ITEM Cracker Hat
+CHOICES 0
+LABEL Offer the parrot a cracker
+SCENE The parrot accepts the cracker and points toward a small cupboard.
+HP 0
+LOOT 1
+ITEM Cracker
+CHOICES 1
+LABEL Open the small cupboard
+SCENE Jerry opens the cupboard and finds a cheese-shaped sponge.
+HP 0
+LOOT 1
+ITEM Sponge
+CHOICES 0
+LABEL Follow the trail of cheese crumbs
+SCENE Jerry follows a trail of crumbs underneath the refrigerator.
+HP 0
+LOOT 1
+ITEM Cheese Crumb
+CHOICES 1
+LABEL Crawl through the dust
+SCENE Jerry crawls through the dust and sneezes loudly.
+HP 0
+LOOT 1
+ITEM Dusty Hat
+CHOICES 1
+LABEL Climb the snack shelf
+SCENE Jerry climbs the snack shelf while wearing the dusty hat.
+HP 0
+LOOT 1
+ITEM none
+CHOICES 1
+LABEL Push the cereal box
+SCENE Jerry pushes the cereal box and discovers a secret tunnel.
+HP 0
+LOOT 1
+ITEM Cereal Key
+CHOICES 1
+LABEL Enter the secret tunnel
+SCENE Jerry reaches the other side and finds a giant piece of cheese.
+HP 0
+LOOT 2
+ITEM Giant Cheese
+CHOICES 0
